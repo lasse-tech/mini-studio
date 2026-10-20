@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mini-studio\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-20 17:13+0200\n"
+"POT-Creation-Date: 2026-10-20 17:49+0200\n"
 "PO-Revision-Date: 2026-10-20 17:13+0200\n"
 "Last-Translator: Lars Gossard <lars@lasse-tech.de>\n"
 "Language-Team: none\n"
@@ -16,109 +16,169 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: app.py:36
-msgid "Open project"
-msgstr "Projekt öffnen"
-
-#: app.py:37
-msgid "Save"
-msgstr "Speichern"
-
-#: app.py:38
-msgid "Build"
-msgstr "Übersetzen"
-
-#: app.py:39
-msgid "Build + flash"
-msgstr "Übersetzen + übertragen"
-
-#: app.py:40
-msgid "Flash HEX"
-msgstr "HEX übertragen"
-
-#: app.py:61
-msgid "Output"
-msgstr "Ausgabe"
-
-#: app.py:84
-#, python-brace-format
-msgid "● Calliope mini V3 connected: {path}"
-msgstr "● Calliope mini V3 verbunden: {path}"
-
-#: app.py:86
-msgid "○ No Calliope mini V3 mounted"
-msgstr "○ Kein Calliope mini V3 eingebunden"
-
-#: app.py:94 calliope_backend.py:40
-msgid "The project needs pxt.json and main.ts."
-msgstr "Das Projekt braucht pxt.json und main.ts."
-
-#: app.py:100
-#, python-brace-format
-msgid "Project opened: {path}"
-msgstr "Projekt geöffnet: {path}"
-
-#: app.py:104
-msgid "Choose a MakeCode project"
-msgstr "MakeCode-Projekt wählen"
-
-#: app.py:109 app.py:178
-msgid "Cancel"
-msgstr "Abbrechen"
-
-#: app.py:109
+#: app.py:90 app.py:353
 msgid "Open"
 msgstr "Öffnen"
 
-#: app.py:121
-msgid "main.ts saved."
+#: app.py:91
+msgid "Open a MakeCode project folder"
+msgstr "MakeCode-Projektordner öffnen"
+
+#: app.py:95
+msgid "Save"
+msgstr "Speichern"
+
+#: app.py:95
+msgid "Save main.ts (Ctrl+S)"
+msgstr "main.ts speichern (Strg+S)"
+
+#: app.py:96
+msgid "Build"
+msgstr "Übersetzen"
+
+#: app.py:96
+msgid "Build main.ts with mkc"
+msgstr "main.ts mit mkc übersetzen"
+
+#: app.py:99
+msgid "Flash HEX"
+msgstr "HEX übertragen"
+
+#: app.py:100
+msgid "Flash a compiled .hex file"
+msgstr "Eine fertige .hex-Datei übertragen"
+
+#: app.py:111
+msgid "Build + Flash"
+msgstr "Übersetzen + übertragen"
+
+#: app.py:112
+msgid "Build and copy the HEX to the mini"
+msgstr "Übersetzen und die HEX auf den mini kopieren"
+
+#: app.py:118 app.py:446
+msgid "About Mini Studio"
+msgstr "Über Mini Studio"
+
+#: app.py:160
+msgid "OUTPUT"
+msgstr "AUSGABE"
+
+#: app.py:206
+msgid "LED PREVIEW"
+msgstr "LED-VORSCHAU"
+
+#: app.py:212
+msgid "showLeds at the cursor"
+msgstr "showLeds an der Schreibmarke"
+
+#: app.py:220
+#, python-brace-format
+msgid "Button {name}"
+msgstr "Taste {name}"
+
+#: app.py:225
+msgid "DEVICE"
+msgstr "GERÄT"
+
+#: app.py:255
+#, python-brace-format
+msgid "connected · {mount}"
+msgstr "verbunden · {mount}"
+
+#: app.py:257
+msgid "not connected"
+msgstr "nicht eingebunden"
+
+#: app.py:292
+#, python-brace-format
+msgid "The program reacts to button {name}"
+msgstr "Das Programm reagiert auf Taste {name}"
+
+#: app.py:297
+#, python-brace-format
+msgid "The program does not use button {name}"
+msgstr "Das Programm nutzt Taste {name} nicht"
+
+#: app.py:333 calliope_backend.py:40
+msgid "A project needs main.ts and pxt.json."
+msgstr "Projekt braucht main.ts und pxt.json."
+
+#: app.py:344
+#, python-brace-format
+msgid "Opened project: {path}"
+msgstr "Projekt geöffnet: {path}"
+
+#: app.py:348
+msgid "Choose a MakeCode project"
+msgstr "MakeCode-Projekt wählen"
+
+#: app.py:353 app.py:426
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: app.py:362
+msgid "Saved main.ts."
 msgstr "main.ts gespeichert."
 
-#: app.py:131
+#: app.py:377
 msgid "A task is already running."
 msgstr "Ein Vorgang läuft bereits."
 
-#: app.py:141
+#: app.py:389
 #, python-brace-format
 msgid "Error: {error}"
 msgstr "Fehler: {error}"
 
-#: app.py:157
+#: app.py:405
 #, python-brace-format
-msgid "Done: {path}"
-msgstr "Fertig: {path}"
+msgid "Done: {image}"
+msgstr "Fertig: {image}"
 
-#: app.py:159
+#: app.py:407
 msgid "Building with mkc …"
 msgstr "Übersetze mit mkc …"
 
-#: app.py:167 app.py:187
+#: app.py:415 app.py:437
 #, python-brace-format
-msgid "Flashed: {path}"
-msgstr "Übertragen: {path}"
+msgid "Flashed: {destination}"
+msgstr "Übertragen: {destination}"
 
-#: app.py:169
+#: app.py:417
 msgid "Building and flashing …"
 msgstr "Übersetze und übertrage …"
 
-#: app.py:173
+#: app.py:421
 msgid "Choose a HEX file"
 msgstr "HEX-Datei wählen"
 
-#: app.py:178
+#: app.py:426
 msgid "Flash"
 msgstr "Übertragen"
 
-#: app.py:188
+#: app.py:439
 msgid "Flashing HEX …"
 msgstr "Übertrage HEX …"
+
+#: app.py:462
+msgid "Editor and flasher for MakeCode TypeScript on the Calliope mini V3."
+msgstr "Editor und Flasher für MakeCode-TypeScript auf dem Calliope mini V3."
+
+#: app.py:471
+msgid "Released under the MIT licence."
+msgstr "Veröffentlicht unter der MIT-Lizenz."
+
+#: app.py:484
+#, python-brace-format
+msgid "Made with {heart} in Europe"
+msgstr "Made with {heart} in Europe"
 
 #: calliope_backend.py:43
 msgid "mkc is missing. Install it with: npm install -g makecode"
 msgstr "mkc fehlt. Installiere es mit: npm install -g makecode"
 
 #: calliope_backend.py:56
-msgid "mkc did not respond within three minutes."
+msgid "mkc did not answer within three minutes."
 msgstr "mkc hat nach drei Minuten nicht geantwortet."
 
 #: calliope_backend.py:59
@@ -126,19 +186,23 @@ msgstr "mkc hat nach drei Minuten nicht geantwortet."
 msgid ""
 "mkc build failed:\n"
 "{output}"
-msgstr "mkc build fehlgeschlagen:\n{output}"
+msgstr ""
+"mkc build fehlgeschlagen:\n"
+"{output}"
 
 #: calliope_backend.py:73
 #, python-brace-format
 msgid ""
-"mkc produced no HEX file.\n"
+"mkc did not produce a HEX file.\n"
 "{output}"
-msgstr "mkc hat keine HEX-Datei erzeugt.\n{output}"
+msgstr ""
+"mkc hat keine HEX-Datei erzeugt.\n"
+"{output}"
 
 #: calliope_backend.py:77
 #, python-brace-format
-msgid "Invalid Intel HEX format: {path}"
-msgstr "Ungültiges Intel-HEX-Format: {path}"
+msgid "Invalid Intel HEX format: {image}"
+msgstr "Ungültiges Intel-HEX-Format: {image}"
 
 #: calliope_backend.py:84
 msgid "No mounted Calliope mini V3 found."
@@ -146,11 +210,11 @@ msgstr "Kein eingebundener Calliope mini V3 gefunden."
 
 #: calliope_backend.py:87
 #, python-brace-format
-msgid "{path} is not a verified Calliope mini V3."
-msgstr "{path} ist kein verifizierter Calliope mini V3."
+msgid "{mount} is not a verified Calliope mini V3."
+msgstr "{mount} ist kein verifizierter Calliope mini V3."
 
 #: calliope_backend.py:90
-msgid "Choose an existing .hex file."
+msgid "Please choose an existing .hex file."
 msgstr "Bitte eine vorhandene .hex-Datei auswählen."
 
 #: calliope_backend.py:92
@@ -159,10 +223,10 @@ msgstr "Die Datei ist keine Intel-HEX-Datei."
 
 #: calliope_backend.py:100
 #, python-brace-format
-msgid "Transfer failed: {error}"
+msgid "Flashing failed: {error}"
 msgstr "Übertragung fehlgeschlagen: {error}"
 
 #: calliope_backend.py:104
 #, python-brace-format
-msgid "DAPLink reports an error: {error}"
-msgstr "DAPLink meldet einen Fehler: {error}"
+msgid "DAPLink reports an error: {details}"
+msgstr "DAPLink meldet einen Fehler: {details}"

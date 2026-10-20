@@ -4,8 +4,8 @@ HELP_VARS := PREFIX
 .DEFAULT_GOAL := help
 
 PYTHON := python3 -W error
-APP_FILES := app.py calliope_backend.py i18n.py main.ts pxt.json mkc.json
-SOURCES := app.py calliope_backend.py
+APP_FILES := app.py calliope_backend.py i18n.py matrix.py mini-studio.css main.ts pxt.json mkc.json
+SOURCES := app.py calliope_backend.py matrix.py
 LANGUAGES := de
 MO := $(foreach l,$(LANGUAGES),locale/$(l)/LC_MESSAGES/mini-studio.mo)
 XGETTEXT := xgettext --language=Python --keyword=_ --from-code=UTF-8 --package-name=mini-studio
@@ -17,6 +17,8 @@ PREFIX ?= $(HOME)/.local
 
 SHARE := $(PREFIX)/share/mini-studio
 BIN := $(PREFIX)/bin/mini-studio
+DESKTOP := $(PREFIX)/share/applications/mini-studio.desktop
+ICON := $(PREFIX)/share/icons/hicolor/scalable/apps/mini-studio.svg
 
 ## help: list targets and variables
 help:
@@ -53,10 +55,13 @@ install: locale
 	cp -r locale $(SHARE)
 	chmod 755 $(SHARE)/app.py
 	ln -sf $(SHARE)/app.py $(BIN)
+	install -d $(dir $(DESKTOP)) $(dir $(ICON))
+	sed 's|^Exec=.*|Exec=$(BIN)|' mini-studio.desktop > $(DESKTOP)
+	install -m 644 mini-studio.svg $(ICON)
 
 ## uninstall: remove what install put in place
 uninstall:
-	rm -f $(BIN)
+	rm -f $(BIN) $(DESKTOP) $(ICON)
 	rm -rf $(SHARE)
 
 ## deploy: nothing to deploy, no web server
