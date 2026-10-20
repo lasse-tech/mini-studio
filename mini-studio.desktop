@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Mini Studio
+Comment=Editor and flasher for MakeCode TypeScript on the Calliope mini V3
+Comment[de]=Editor und Flasher für MakeCode-TypeScript auf dem Calliope mini V3
+Exec=mini-studio
+Icon=mini-studio
+Terminal=false
+Categories=Development;Education;Electronics;
+StartupWMClass=mini-studio

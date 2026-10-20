@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="128" height="128">
+  <!-- Mini Studio mark: the 5×5 LED matrix showing an M. Keep in step with matrix.py. -->
+  <rect width="100" height="100" rx="22" fill="#1d2027"/>
+  <rect x="7.64" y="7.64" width="18.72" height="18.72" rx="6" fill="#ff5a3c" fill-opacity="0.22"/>
+  <rect x="73.64" y="7.64" width="18.72" height="18.72" rx="6" fill="#ff5a3c" fill-opacity="0.22"/>
+  <rect x="7.64" y="24.14" width="18.72" height="18.72" rx="6" fill="#ff5a3c" fill-opacity="0.22"/>
+  <rect x="24.14" y="24.14" width="18.72" height="18.72" rx="6" fill="#ff5a3c" fill-opacity="0.22"/>
+  <rect x="57.14" y="24.14" width="18.72" height="18.72" rx="6" fill="#ff5a3c" fill-opacity="0.22"/>
+  <rect x="73.64" y="24.14" width="18.72" height="18.72" rx="6" fill="#ff5a3c" fill-opacity="0.22"/>
+  <rect x="7.64" y="40.64" width="18.72" height="18.72" rx="6" fill="#ff5a3c" fill-opacity="0.22"/>
+  <rect x="40.64" y="40.64" width="18.72" height="18.72" rx="6" fill="#ff5a3c" fill-opacity="0.22"/>
+  <rect x="73.64" y="40.64" width="18.72" height="18.72" rx="6" fill="#ff5a3c" fill-opacity="0.22"/>
+  <rect x="7.64" y="57.14" width="18.72" height="18.72" rx="6" fill="#ff5a3c" fill-opacity="0.22"/>
+  <rect x="73.64" y="57.14" width="18.72" height="18.72" rx="6" fill="#ff5a3c" fill-opacity="0.22"/>
+  <rect x="7.64" y="73.64" width="18.72" height="18.72" rx="6" fill="#ff5a3c" fill-opacity="0.22"/>
+  <rect x="73.64" y="73.64" width="18.72" height="18.72" rx="6" fill="#ff5a3c" fill-opacity="0.22"/>
+  <rect x="11" y="11" width="12" height="12" rx="3" fill="#ff5a3c"/>
+  <rect x="27.5" y="11" width="12" height="12" rx="3" fill="#2e3139"/>
+  <rect x="44" y="11" width="12" height="12" rx="3" fill="#2e3139"/>
+  <rect x="60.5" y="11" width="12" height="12" rx="3" fill="#2e3139"/>
+  <rect x="77" y="11" width="12" height="12" rx="3" fill="#ff5a3c"/>
+  <rect x="11" y="27.5" width="12" height="12" rx="3" fill="#ff5a3c"/>
+  <rect x="27.5" y="27.5" width="12" height="12" rx="3" fill="#ff5a3c"/>
+  <rect x="44" y="27.5" width="12" height="12" rx="3" fill="#2e3139"/>
+  <rect x="60.5" y="27.5" width="12" height="12" rx="3" fill="#ff5a3c"/>
+  <rect x="77" y="27.5" width="12" height="12" rx="3" fill="#ff5a3c"/>
+  <rect x="11" y="44" width="12" height="12" rx="3" fill="#ff5a3c"/>
+  <rect x="27.5" y="44" width="12" height="12" rx="3" fill="#2e3139"/>
+  <rect x="44" y="44" width="12" height="12" rx="3" fill="#ff5a3c"/>
+  <rect x="60.5" y="44" width="12" height="12" rx="3" fill="#2e3139"/>
+  <rect x="77" y="44" width="12" height="12" rx="3" fill="#ff5a3c"/>
+  <rect x="11" y="60.5" width="12" height="12" rx="3" fill="#ff5a3c"/>
+  <rect x="27.5" y="60.5" width="12" height="12" rx="3" fill="#2e3139"/>
+  <rect x="44" y="60.5" width="12" height="12" rx="3" fill="#2e3139"/>
+  <rect x="60.5" y="60.5" width="12" height="12" rx="3" fill="#2e3139"/>
+  <rect x="77" y="60.5" width="12" height="12" rx="3" fill="#ff5a3c"/>
+  <rect x="11" y="77" width="12" height="12" rx="3" fill="#ff5a3c"/>
+  <rect x="27.5" y="77" width="12" height="12" rx="3" fill="#2e3139"/>
+  <rect x="44" y="77" width="12" height="12" rx="3" fill="#2e3139"/>
+  <rect x="60.5" y="77" width="12" height="12" rx="3" fill="#2e3139"/>
+  <rect x="77" y="77" width="12" height="12" rx="3" fill="#ff5a3c"/>
+</svg>

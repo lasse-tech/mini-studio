@@ -4,7 +4,7 @@ HELP_VARS := PREFIX
 .DEFAULT_GOAL := help
 
 PYTHON := python3 -W error
-APP_FILES := app.py calliope_backend.py main.ts pxt.json mkc.json
+APP_FILES := app.py calliope_backend.py i18n.py matrix.py mini-studio.css main.ts pxt.json mkc.json
 
 ##@ Build
 
@@ -13,6 +13,8 @@ PREFIX ?= $(HOME)/.local
 
 SHARE := $(PREFIX)/share/mini-studio
 BIN := $(PREFIX)/bin/mini-studio
+DESKTOP := $(PREFIX)/share/applications/mini-studio.desktop
+ICON := $(PREFIX)/share/icons/hicolor/scalable/apps/mini-studio.svg
 
 ## help: list targets and variables
 help:
@@ -36,10 +38,13 @@ install:
 	install -m 644 $(APP_FILES) $(SHARE)
 	chmod 755 $(SHARE)/app.py
 	ln -sf $(SHARE)/app.py $(BIN)
+	install -d $(dir $(DESKTOP)) $(dir $(ICON))
+	sed 's|^Exec=.*|Exec=$(BIN)|' mini-studio.desktop > $(DESKTOP)
+	install -m 644 mini-studio.svg $(ICON)
 
 ## uninstall: remove what install put in place
 uninstall:
-	rm -f $(BIN)
+	rm -f $(BIN) $(DESKTOP) $(ICON)
 	rm -rf $(SHARE)
 
 ## deploy: nothing to deploy, no web server

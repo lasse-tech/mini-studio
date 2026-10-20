@@ -9,7 +9,5 @@ GTK-Editor und Flasher für MakeCode-TypeScript auf dem Calliope mini V3. Beispi
 - `basic.showLeds` pausiert ohne zweites Argument 400 ms — im Takt immer `showLeds(…, 0)`.
 - Melodie aus `midi/imperial-march.mid`, Trompetenspur Takt 6–17, auf 16tel quantisiert.
 
-## Offen
-
-- Oberfläche ist nur deutsch: muss Englisch werden, Deutsch als Zweitsprache.
-- About-Dialog fehlt (Copyright, Lizenz, Chip `Made with <3 in Europe`).
+- Design „Matrix“: eigenes Theme in `mini-studio.css` (Farben gleich in `matrix.py` und `mini-studio.svg`), Host-Theme wird nicht übernommen.
+- Oberfläche Englisch, Deutsch als Zweitsprache über `i18n.py`; neue Texte immer dort eintragen.

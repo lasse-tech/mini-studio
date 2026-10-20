@@ -1,0 +1,219 @@
+/* Mini Studio “Matrix” theme. Loaded above the user's gtk.css on top of Adwaita dark,
+   so the window looks the same on every desktop. Keep the colours in step with matrix.py. */
+
+@define-color graphite #15171c;
+@define-color surface #1c1f26;
+@define-color side #181a20;
+@define-color well #101216;
+@define-color line #2a2e37;
+@define-color hover #262a32;
+@define-color paper #e7e3dc;
+@define-color muted #8b8f99;
+@define-color led #ff5a3c;
+@define-color led_hover #ff7055;
+@define-color led_ink #1a0d0a;
+
+window,
+dialog,
+.background {
+  background-color: @graphite;
+  color: @paper;
+}
+
+window,
+dialog,
+label,
+button,
+entry {
+  font-family: "Atkinson Hyperlegible", "Cantarell", "Noto Sans", sans-serif;
+}
+
+/* Header bar: brand, actions, primary button */
+headerbar {
+  background-color: @surface;
+  background-image: none;
+  border: none;
+  border-bottom: 1px solid @line;
+  box-shadow: none;
+  min-height: 44px;
+  padding: 0 8px;
+}
+
+headerbar:backdrop {
+  background-color: @surface;
+}
+
+headerbar button {
+  background: transparent;
+  border: none;
+  border-radius: 7px;
+  box-shadow: none;
+  color: #d6d2cb;
+  padding: 5px 10px;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+}
+
+headerbar button:hover {
+  background-color: @hover;
+}
+
+headerbar button:active,
+headerbar button:checked {
+  background-color: @line;
+}
+
+headerbar button:disabled {
+  color: #5b5f69;
+}
+
+headerbar button.primary {
+  background-color: @led;
+  color: @led_ink;
+  font-weight: bold;
+  padding: 5px 14px;
+  border-radius: 8px;
+}
+
+headerbar button.primary:hover {
+  background-color: @led_hover;
+}
+
+headerbar button.primary:disabled {
+  background-color: #5a2a22;
+  color: #2a1612;
+}
+
+/* Sidebar with the LED preview and the device */
+.sidebar {
+  background-color: @side;
+  border-right: 1px solid @line;
+}
+
+.section {
+  color: @muted;
+  font-family: "JetBrains Mono", "DejaVu Sans Mono", monospace;
+  font-size: 8pt;
+}
+
+.board {
+  background-color: @well;
+  border: 1px solid @line;
+  border-radius: 12px;
+}
+
+.hint {
+  color: @muted;
+  font-size: 9pt;
+}
+
+.chip {
+  border: 1px solid @line;
+  border-radius: 999px;
+  color: #6f737d;
+  font-size: 9pt;
+  padding: 4px 0;
+}
+
+.chip.used {
+  border-color: #5a2a22;
+  color: @led;
+}
+
+.device {
+  font-weight: bold;
+}
+
+/* Editor and output */
+.tab {
+  border-bottom: 1px solid @line;
+  color: @muted;
+  font-family: "JetBrains Mono", "DejaVu Sans Mono", monospace;
+  font-size: 9pt;
+  padding: 8px 16px;
+}
+
+.monospace {
+  font-family: "JetBrains Mono", "DejaVu Sans Mono", monospace;
+  font-size: 10pt;
+}
+
+textview,
+textview text,
+textview border {
+  background-color: @graphite;
+  color: @paper;
+}
+
+textview text {
+  caret-color: @led;
+}
+
+textview text selection,
+textview selection {
+  background-color: #5a2a22;
+  color: #ffffff;
+}
+
+.output,
+.output text,
+.output border {
+  background-color: #111317;
+  color: #a7a39c;
+}
+
+.output-frame {
+  border-top: 1px solid @line;
+}
+
+scrolledwindow,
+scrolledwindow undershoot,
+scrolledwindow overshoot {
+  background: none;
+  border: none;
+}
+
+scrollbar {
+  background-color: transparent;
+  border: none;
+}
+
+scrollbar slider {
+  background-color: #3a3e48;
+  border: none;
+  border-radius: 6px;
+  min-width: 6px;
+  min-height: 6px;
+}
+
+scrollbar slider:hover {
+  background-color: #4a4f5b;
+}
+
+tooltip,
+tooltip.background {
+  background-color: #22252d;
+  border: 1px solid @line;
+  border-radius: 6px;
+  color: @paper;
+}
+
+tooltip * {
+  background: transparent;
+}
+
+/* About dialog */
+.about .tagline {
+  color: #b9b5ae;
+}
+
+.about .chip {
+  border-color: @line;
+  color: @paper;
+  padding: 5px 14px;
+}
+
+.about *:link,
+.about *:visited {
+  color: @led;
+}

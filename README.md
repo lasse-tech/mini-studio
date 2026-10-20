@@ -7,7 +7,8 @@ Button A plays the melody again.
 
 ## Start
 
-Requires Python 3, PyGObject/GTK 3, Node.js and the official
+Requires Python 3, PyGObject/GTK 3 with pycairo (Debian/Ubuntu: `python3-gi`,
+`python3-gi-cairo`, `gir1.2-gtk-3.0`), Node.js and the official
 [MakeCode CLI `mkc`](https://github.com/microsoft/pxt-mkc):
 
 ```sh
@@ -16,17 +17,29 @@ make debug
 ```
 
 `make flash` builds `main.ts` and copies the HEX to a mounted Calliope mini V3
-without the editor; `make install` puts the editor into `~/.local`.
+without the editor; `make install` puts the editor into `~/.local`, together
+with a desktop entry and the app icon.
 
-Edit `main.ts` in the editor and click **Übersetzen + übertragen**.
+Edit `main.ts` in the editor and click **Build + Flash**.
 On the first build `mkc` downloads the Calliope compiler from
 `https://makecode.calliope.cc/`, so an internet connection is needed.
 The app only writes to the `MINI` drive if its DAPLink info file identifies
 a Calliope mini V3. Alternatively, an already compiled `.hex` file can be
-flashed with **HEX übertragen**.
+flashed with **Flash HEX**.
 
 The code is MakeCode TypeScript; `mkc` cannot compile plain JavaScript or
 MicroPython in this project.
+
+## Look
+
+Mini Studio brings its own dark “Matrix” theme (`mini-studio.css` on top of
+Adwaita) instead of the desktop theme. Mark, wordmark and icons are 5×5 LED
+patterns drawn in `matrix.py`; `mini-studio.svg` is the app icon. The sidebar
+previews the `showLeds` image at the cursor and shows whether the program uses
+buttons A and B. Fonts: Atkinson Hyperlegible and JetBrains Mono if installed,
+otherwise the usual fallbacks.
+
+The interface is English; with a German locale (`LANG=de_DE.UTF-8`) it is German.
 
 ## Licence
 
