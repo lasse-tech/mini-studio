@@ -1,0 +1,11 @@
+{
+  "name": "imperial-march-calliope-v3",
+  "description": "Imperial March motif with blinking LEDs for Calliope mini V3",
+  "dependencies": {
+    "v3": "*"
+  },
+  "files": [
+    "main.ts"
+  ],
+  "preferredEditor": "tsprj"
+}
