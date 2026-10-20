@@ -18,7 +18,9 @@ PREFIX ?= $(HOME)/.local
 SHARE := $(PREFIX)/share/mini-studio
 BIN := $(PREFIX)/bin/mini-studio
 DESKTOP := $(PREFIX)/share/applications/mini-studio.desktop
-ICON := $(PREFIX)/share/icons/hicolor/scalable/apps/mini-studio.svg
+ICON_THEME := $(PREFIX)/share/icons/hicolor
+ICON := $(ICON_THEME)/scalable/apps/mini-studio.svg
+REFRESH_MENU := gtk-update-icon-cache --quiet --force --ignore-theme-index $(ICON_THEME); update-desktop-database --quiet $(dir $(DESKTOP))
 
 ## help: list targets and variables
 help:
@@ -58,10 +60,12 @@ install: locale
 	install -d $(dir $(DESKTOP)) $(dir $(ICON))
 	sed 's|^Exec=.*|Exec=$(BIN)|' mini-studio.desktop > $(DESKTOP)
 	install -m 644 mini-studio.svg $(ICON)
+	$(REFRESH_MENU)
 
 ## uninstall: remove what install put in place
 uninstall:
 	rm -f $(BIN) $(DESKTOP) $(ICON)
+	$(REFRESH_MENU)
 	rm -rf $(SHARE)
 
 ## deploy: nothing to deploy, no web server

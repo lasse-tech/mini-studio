@@ -6,5 +6,5 @@ Comment[de]=Editor und Flasher für MakeCode-TypeScript auf dem Calliope mini V3
 Exec=mini-studio
 Icon=mini-studio
 Terminal=false
-Categories=Development;Education;Electronics;
+Categories=Development;Electronics;
 StartupWMClass=mini-studio
