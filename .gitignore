@@ -3,3 +3,4 @@ node_modules/
 .pxt/
 __pycache__/
 locale/
+.screenshot-home/

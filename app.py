@@ -52,6 +52,12 @@ def apply_theme() -> None:
     )
 
 
+def shown(path: Path) -> str:
+    """Path for display, with the home folder as ~."""
+    home = Path(GLib.get_home_dir())
+    return f"~/{path.relative_to(home)}" if path.is_relative_to(home) else str(path)
+
+
 def styled(widget: Gtk.Widget, *classes: str) -> Gtk.Widget:
     for name in classes:
         widget.get_style_context().add_class(name)
@@ -252,7 +258,7 @@ class CalliopeApp(Gtk.Window):
         if copied:
             self.log(
                 _("Copied {title} from the library to {path}").format(
-                    title=entry.title, path=path
+                    title=entry.title, path=shown(path)
                 )
             )
         self.load_project(path)
@@ -397,12 +403,12 @@ class CalliopeApp(Gtk.Window):
         self.buffer.set_text(source.read_text(encoding="utf-8"))
         self.buffer.place_cursor(self.buffer.get_start_iter())
         self.buffer.set_modified(False)
-        self.set_title(f"Mini Studio — {path}")
+        self.set_title(f"Mini Studio — {shown(path)}")
         self.tab.set_markup(
             "<b>main.ts</b> · MakeCode TypeScript · "
-            + GLib.markup_escape_text(str(path))
+            + GLib.markup_escape_text(shown(path))
         )
-        self.log(_("Opened project: {path}").format(path=path))
+        self.log(_("Opened project: {path}").format(path=shown(path)))
 
     def open_project(self, *_args) -> None:
         dialog = Gtk.FileChooserDialog(

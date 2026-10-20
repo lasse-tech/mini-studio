@@ -75,6 +75,12 @@ uninstall:
 	$(REFRESH_MENU)
 	rm -rf $(SHARE)
 
+## screenshot: docs/screenshot.png for the README, English, fresh library copy
+screenshot: locale
+	rm -rf .screenshot-home && mkdir -p .screenshot-home docs
+	HOME=$(CURDIR)/.screenshot-home LANGUAGE=en LANG=en_US.UTF-8 PYTHONPATH=$(CURDIR) xvfb-run -a -s "-screen 0 1280x800x24" $(PYTHON) scripts/screenshot.py docs/screenshot.png
+	rm -rf .screenshot-home
+
 ## github: push main to GitHub, with history rewritten without CLAUDE.md
 github:
 	git push github $$($(PYTHON) -I scripts/github_export.py main $(PRIVATE)):refs/heads/main
@@ -102,4 +108,4 @@ clean:
 distclean: clean
 	rm -rf library/*/.pxt library/*/node_modules
 
-.PHONY: help build locale pot flash github debug install uninstall deploy lint clean distclean
+.PHONY: help build locale pot flash github screenshot debug install uninstall deploy lint clean distclean

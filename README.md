@@ -3,6 +3,8 @@
 Linux editor for MakeCode TypeScript on the Calliope mini V3, with a library
 of ready-made projects.
 
+![Mini Studio with the Imperial March from the library](docs/screenshot.png)
+
 ## Start
 
 Requires Python 3, PyGObject/GTK 3 with pycairo (Debian/Ubuntu: `python3-gi`,
@@ -48,7 +50,8 @@ then the matrix shows a still image so the mini is visibly ready.
 
 Mini Studio brings its own dark “Matrix” theme (`mini-studio.css` on top of
 Adwaita) instead of the desktop theme. Mark, wordmark and icons are 5×5 LED
-patterns drawn in `matrix.py`; `mini-studio.svg` is the app icon. The sidebar
+patterns drawn in `matrix.py`; `mini-studio.svg` is the app icon. `make screenshot` renders `docs/screenshot.png` headless
+in English from a fresh library copy. The sidebar
 previews the `showLeds` image at the cursor and shows whether the program uses
 buttons A and B. Fonts: Atkinson Hyperlegible and JetBrains Mono if installed,
 otherwise the usual fallbacks.
