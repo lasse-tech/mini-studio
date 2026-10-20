@@ -217,3 +217,24 @@ tooltip * {
 .about *:visited {
   color: @led;
 }
+
+/* Library popover */
+popover.library {
+  background-color: @surface;
+  border: 1px solid @line;
+  border-radius: 10px;
+  color: @paper;
+}
+
+popover.library list {
+  background-color: transparent;
+  color: @paper;
+}
+
+popover.library row {
+  border-radius: 7px;
+}
+
+popover.library row:hover {
+  background-color: @hover;
+}

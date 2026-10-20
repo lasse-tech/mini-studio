@@ -1,0 +1,11 @@
+{
+  "name": "deep-space-nine-calliope-v3",
+  "description": "Star Trek: Deep Space Nine main title melody for Calliope mini V3",
+  "dependencies": {
+    "v3": "*"
+  },
+  "files": [
+    "main.ts"
+  ],
+  "preferredEditor": "tsprj"
+}

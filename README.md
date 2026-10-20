@@ -1,9 +1,7 @@
 # Mini Studio
 
-Linux editor for MakeCode TypeScript on the Calliope mini V3. The example plays
-the main theme of the Imperial March on start (melody only, taken from the
-trumpet line of an orchestral MIDI) and blinks the 5×5 LED matrix in time.
-Button A plays the melody again.
+Linux editor for MakeCode TypeScript on the Calliope mini V3, with a library
+of ready-made projects.
 
 ## Start
 
@@ -16,8 +14,8 @@ npm install -g makecode
 make debug
 ```
 
-`make flash` builds `main.ts` and copies the HEX to a mounted Calliope mini V3
-without the editor; `make install` puts the editor into `~/.local`, together
+`make flash` builds a library project (`EXAMPLE=imperial-march` by default)
+and copies the HEX to a mounted Calliope mini V3 without the editor; `make install` puts the editor into `~/.local`, together
 with a desktop entry and the app icon.
 
 Edit `main.ts` in the editor and click **Build + Flash**.
@@ -29,6 +27,22 @@ flashed with **Flash HEX**.
 
 The code is MakeCode TypeScript; `mkc` cannot compile plain JavaScript or
 MicroPython in this project.
+
+## Library
+
+Every entry is a MakeCode project in `library/<slug>/`, next to its sources
+(MIDI and the like), and is listed in `library.py`. **Library** copies the
+entry to `~/Documents/Mini Studio/<slug>` (the localised documents folder) and
+opens the copy; an existing copy is opened as it is, so own changes survive.
+On start the app opens the first entry.
+
+| Entry | Source | Notes |
+|---|---|---|
+| `imperial-march` | `imperial-march.mid`, trumpet, bars 6–17 | quantised to sixteenths, 102 bpm |
+| `deep-space-nine` | `deep-space-nine.mid`, horn and trumpet | timing in ms as recorded, top note of horn chords |
+
+Both melodies play on start and again on button A, with the LED matrix
+blinking in time.
 
 ## Look
 
@@ -49,5 +63,6 @@ of `make flash` stays English.
 
 ## Licence
 
-MIT, see `LICENSE`. `midi/imperial-march.mid` is the source of the melody in
-`main.ts`; the Imperial March is a composition by John Williams.
+MIT, see `LICENSE`. The melodies in the library are taken from the MIDI files
+next to them: the Imperial March is a composition by John Williams, the
+Deep Space Nine main title one by Dennis McCarthy.

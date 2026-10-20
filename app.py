@@ -15,6 +15,7 @@ gi.require_version("PangoCairo", "1.0")
 from gi.repository import Gdk, GLib, Gtk, Pango, PangoCairo
 
 import i18n
+import library
 import matrix
 from calliope_backend import CalliopeError, build, find_device, flash
 from i18n import _
@@ -68,7 +69,7 @@ def section(text: str) -> Gtk.Label:
 class CalliopeApp(Gtk.Window):
     def __init__(self) -> None:
         super().__init__(title="Mini Studio")
-        self.project = HERE
+        self.project: Path | None = None
         self.busy = False
         self.highlight_pending = False
         self.set_default_size(1040, 720)
@@ -106,6 +107,8 @@ class CalliopeApp(Gtk.Window):
             header.pack_start(button)
             if task:
                 self.task_buttons.append(button)
+            if icon == "open":
+                header.pack_start(self.library_button())
         primary = self.action_button(
             "flash",
             _("Build + Flash"),
@@ -182,7 +185,7 @@ class CalliopeApp(Gtk.Window):
         log_buffer.create_tag("ok", foreground="#ffb347")
         log_buffer.create_tag("error", foreground=matrix.LED)
 
-        self.load_project(self.project)
+        self.open_entry(library.entries()[0])
         self.update_device()
         GLib.timeout_add_seconds(2, self.update_device)
 
@@ -197,6 +200,62 @@ class CalliopeApp(Gtk.Window):
         button.add(content)
         button.connect("clicked", callback)
         return button
+
+    def library_button(self) -> Gtk.MenuButton:
+        button = Gtk.MenuButton(tooltip_text=_("Open a project from the library"))
+        content = Gtk.Box(spacing=7)
+        content.pack_start(matrix.PixelIcon("library"), False, False, 0)
+        content.pack_start(Gtk.Label(label=_("Library")), False, False, 0)
+        button.add(content)
+        popover = styled(Gtk.Popover(), "library")
+        rows = Gtk.ListBox(selection_mode=Gtk.SelectionMode.NONE, margin=6)
+        popover.add(rows)
+        for entry in library.entries():
+            row = Gtk.ListBoxRow()
+            row.entry = entry
+            line = Gtk.Box(spacing=12, margin=8)
+            line.pack_start(matrix.PixelIcon("melody"), False, False, 0)
+            text = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=2)
+            title = Gtk.Label(xalign=0)
+            title.set_markup(f"<b>{GLib.markup_escape_text(entry.title)}</b>")
+            text.pack_start(title, False, False, 0)
+            text.pack_start(
+                styled(
+                    Gtk.Label(label=f"{entry.kind} · {entry.origin}", xalign=0), "hint"
+                ),
+                False,
+                False,
+                0,
+            )
+            line.pack_start(text, True, True, 0)
+            row.add(line)
+            rows.add(row)
+        rows.show_all()
+
+        def activated(_rows, row) -> None:
+            popover.popdown()
+            self.open_entry(row.entry)
+
+        rows.connect("row-activated", activated)
+        button.set_popover(popover)
+        return button
+
+    def open_entry(self, entry: library.Entry) -> None:
+        documents = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DOCUMENTS)
+        folder = Path(documents or GLib.get_home_dir()) / "Mini Studio"
+        try:
+            folder.mkdir(parents=True, exist_ok=True)
+            path, copied = library.user_copy(entry, folder)
+        except OSError as exc:
+            self.log(_("Error: {error}").format(error=exc), "error")
+            return
+        if copied:
+            self.log(
+                _("Copied {title} from the library to {path}").format(
+                    title=entry.title, path=path
+                )
+            )
+        self.load_project(path)
 
     def sidebar(self) -> Gtk.Widget:
         frame = styled(Gtk.Box(), "sidebar")
@@ -332,6 +391,8 @@ class CalliopeApp(Gtk.Window):
         if not source.is_file() or not config.is_file():
             self.log(_("A project needs main.ts and pxt.json."), "error")
             return
+        if self.project and self.buffer.get_modified():
+            self.save()
         self.project = path
         self.buffer.set_text(source.read_text(encoding="utf-8"))
         self.buffer.place_cursor(self.buffer.get_start_iter())
@@ -357,6 +418,8 @@ class CalliopeApp(Gtk.Window):
         dialog.destroy()
 
     def save(self, *_args) -> None:
+        if self.project is None:
+            return
         (self.project / "main.ts").write_text(self.source(), encoding="utf-8")
         self.buffer.set_modified(False)
         self.log(_("Saved main.ts."))
@@ -398,6 +461,8 @@ class CalliopeApp(Gtk.Window):
         return False
 
     def do_build(self, *_args) -> None:
+        if self.project is None:
+            return
         self.save()
 
         def task() -> tuple[str, str]:
@@ -407,6 +472,8 @@ class CalliopeApp(Gtk.Window):
         self.run_task(task, _("Building with mkc …"))
 
     def do_build_flash(self, *_args) -> None:
+        if self.project is None:
+            return
         self.save()
 
         def task() -> tuple[str, str]:

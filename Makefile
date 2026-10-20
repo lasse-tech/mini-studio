@@ -1,11 +1,12 @@
 REQUIRED := clean distclean debug install uninstall deploy lint
-HELP_VARS := PREFIX
+HELP_VARS := PREFIX EXAMPLE
 
 .DEFAULT_GOAL := help
 
 PYTHON := python3 -W error
-APP_FILES := app.py calliope_backend.py i18n.py matrix.py mini-studio.css main.ts pxt.json mkc.json
-SOURCES := app.py calliope_backend.py matrix.py
+APP_FILES := app.py calliope_backend.py i18n.py library.py matrix.py mini-studio.css
+SOURCES := app.py calliope_backend.py library.py matrix.py
+PROJECTS := $(notdir $(wildcard library/*))
 LANGUAGES := de
 MO := $(foreach l,$(LANGUAGES),locale/$(l)/LC_MESSAGES/mini-studio.mo)
 XGETTEXT := xgettext --language=Python --keyword=_ --from-code=UTF-8 --package-name=mini-studio
@@ -14,6 +15,9 @@ XGETTEXT := xgettext --language=Python --keyword=_ --from-code=UTF-8 --package-n
 
 ## PREFIX: install root for the editor
 PREFIX ?= $(HOME)/.local
+
+## EXAMPLE: library project that build and flash use
+EXAMPLE ?= imperial-march
 
 SHARE := $(PREFIX)/share/mini-studio
 BIN := $(PREFIX)/bin/mini-studio
@@ -26,9 +30,9 @@ REFRESH_MENU := gtk-update-icon-cache --quiet --force --ignore-theme-index $(ICO
 help:
 	@$(foreach v,$(HELP_VARS),$(v)='$($(v))') awk -f scripts/make-help.awk $(firstword $(MAKEFILE_LIST))
 
-## build: compile main.ts to built/v3/binary.hex
+## build: compile library/EXAMPLE to its built/v3/binary.hex
 build:
-	mkc build
+	cd library/$(EXAMPLE) && mkc build
 
 ## locale: compile the translations in po/ to locale/
 locale: $(MO)
@@ -44,7 +48,7 @@ pot:
 
 ## flash: build and copy the HEX to a mounted Calliope mini V3
 flash: build
-	$(PYTHON) -c 'from pathlib import Path; import calliope_backend as c; print(c.flash(Path("built/v3/binary.hex")))'
+	$(PYTHON) -c 'from pathlib import Path; import calliope_backend as c; print(c.flash(Path("library/$(EXAMPLE)/built/v3/binary.hex")))'
 
 ## debug: start the editor from the working tree, warnings as errors
 debug: locale
@@ -55,6 +59,8 @@ install: locale
 	install -d $(SHARE) $(PREFIX)/bin
 	install -m 644 $(APP_FILES) $(SHARE)
 	cp -r locale $(SHARE)
+	rm -rf $(SHARE)/library
+	tar -c --exclude=built --exclude=.pxt library | tar -x -C $(SHARE)
 	chmod 755 $(SHARE)/app.py
 	ln -sf $(SHARE)/app.py $(BIN)
 	install -d $(dir $(DESKTOP)) $(dir $(ICON))
@@ -80,15 +86,15 @@ lint:
 	ruff format --check .
 	$(foreach l,$(LANGUAGES),$(XGETTEXT) -o - $(SOURCES) | msgcmp po/$(l).po - &&) true
 	$(foreach l,$(LANGUAGES),msgfmt --check -o /dev/null po/$(l).po &&) true
-	mkc build
+	$(foreach p,$(PROJECTS),(cd library/$(p) && mkc build) &&) true
 	@awk -v required="$(REQUIRED)" -f scripts/make-lint.awk $(firstword $(MAKEFILE_LIST))
 
 ## clean: remove build output
 clean:
-	rm -rf built __pycache__ locale
+	rm -rf __pycache__ locale library/*/built
 
 ## distclean: clean plus the MakeCode caches
 distclean: clean
-	rm -rf .pxt node_modules
+	rm -rf library/*/.pxt library/*/node_modules
 
 .PHONY: help build locale pot flash debug install uninstall deploy lint clean distclean

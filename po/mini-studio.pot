@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mini-studio\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-20 17:49+0200\n"
+"POT-Creation-Date: 2026-10-20 18:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,159 +17,172 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: app.py:90 app.py:353
+#: app.py:91 app.py:414
 msgid "Open"
 msgstr ""
 
-#: app.py:91
+#: app.py:92
 msgid "Open a MakeCode project folder"
 msgstr ""
 
-#: app.py:95
+#: app.py:96
 msgid "Save"
 msgstr ""
 
-#: app.py:95
+#: app.py:96
 msgid "Save main.ts (Ctrl+S)"
 msgstr ""
 
-#: app.py:96
+#: app.py:97
 msgid "Build"
 msgstr ""
 
-#: app.py:96
+#: app.py:97
 msgid "Build main.ts with mkc"
 msgstr ""
 
-#: app.py:99
+#: app.py:100
 msgid "Flash HEX"
 msgstr ""
 
-#: app.py:100
+#: app.py:101
 msgid "Flash a compiled .hex file"
 msgstr ""
 
-#: app.py:111
+#: app.py:114
 msgid "Build + Flash"
 msgstr ""
 
-#: app.py:112
+#: app.py:115
 msgid "Build and copy the HEX to the mini"
 msgstr ""
 
-#: app.py:118 app.py:446
+#: app.py:121 app.py:513
 msgid "About Mini Studio"
 msgstr ""
 
-#: app.py:160
+#: app.py:163
 msgid "OUTPUT"
 msgstr ""
 
-#: app.py:206
-msgid "LED PREVIEW"
+#: app.py:205
+msgid "Open a project from the library"
 msgstr ""
 
-#: app.py:212
-msgid "showLeds at the cursor"
+#: app.py:208
+msgid "Library"
 msgstr ""
 
-#: app.py:220
-#, python-brace-format
-msgid "Button {name}"
-msgstr ""
-
-#: app.py:225
-msgid "DEVICE"
-msgstr ""
-
-#: app.py:255
-#, python-brace-format
-msgid "connected · {mount}"
-msgstr ""
-
-#: app.py:257
-msgid "not connected"
-msgstr ""
-
-#: app.py:292
-#, python-brace-format
-msgid "The program reacts to button {name}"
-msgstr ""
-
-#: app.py:297
-#, python-brace-format
-msgid "The program does not use button {name}"
-msgstr ""
-
-#: app.py:333 calliope_backend.py:40
-msgid "A project needs main.ts and pxt.json."
-msgstr ""
-
-#: app.py:344
-#, python-brace-format
-msgid "Opened project: {path}"
-msgstr ""
-
-#: app.py:348
-msgid "Choose a MakeCode project"
-msgstr ""
-
-#: app.py:353 app.py:426
-msgid "Cancel"
-msgstr ""
-
-#: app.py:362
-msgid "Saved main.ts."
-msgstr ""
-
-#: app.py:377
-msgid "A task is already running."
-msgstr ""
-
-#: app.py:389
+#: app.py:250 app.py:452
 #, python-brace-format
 msgid "Error: {error}"
 msgstr ""
 
+#: app.py:254
+#, python-brace-format
+msgid "Copied {title} from the library to {path}"
+msgstr ""
+
+#: app.py:265
+msgid "LED PREVIEW"
+msgstr ""
+
+#: app.py:271
+msgid "showLeds at the cursor"
+msgstr ""
+
+#: app.py:279
+#, python-brace-format
+msgid "Button {name}"
+msgstr ""
+
+#: app.py:284
+msgid "DEVICE"
+msgstr ""
+
+#: app.py:314
+#, python-brace-format
+msgid "connected · {mount}"
+msgstr ""
+
+#: app.py:316
+msgid "not connected"
+msgstr ""
+
+#: app.py:351
+#, python-brace-format
+msgid "The program reacts to button {name}"
+msgstr ""
+
+#: app.py:356
+#, python-brace-format
+msgid "The program does not use button {name}"
+msgstr ""
+
+#: app.py:392 calliope_backend.py:40
+msgid "A project needs main.ts and pxt.json."
+msgstr ""
+
 #: app.py:405
+#, python-brace-format
+msgid "Opened project: {path}"
+msgstr ""
+
+#: app.py:409
+msgid "Choose a MakeCode project"
+msgstr ""
+
+#: app.py:414 app.py:493
+msgid "Cancel"
+msgstr ""
+
+#: app.py:425
+msgid "Saved main.ts."
+msgstr ""
+
+#: app.py:440
+msgid "A task is already running."
+msgstr ""
+
+#: app.py:470
 #, python-brace-format
 msgid "Done: {image}"
 msgstr ""
 
-#: app.py:407
+#: app.py:472
 msgid "Building with mkc …"
 msgstr ""
 
-#: app.py:415 app.py:437
+#: app.py:482 app.py:504
 #, python-brace-format
 msgid "Flashed: {destination}"
 msgstr ""
 
-#: app.py:417
+#: app.py:484
 msgid "Building and flashing …"
 msgstr ""
 
-#: app.py:421
+#: app.py:488
 msgid "Choose a HEX file"
 msgstr ""
 
-#: app.py:426
+#: app.py:493
 msgid "Flash"
 msgstr ""
 
-#: app.py:439
+#: app.py:506
 msgid "Flashing HEX …"
 msgstr ""
 
-#: app.py:462
+#: app.py:529
 msgid "Editor and flasher for MakeCode TypeScript on the Calliope mini V3."
 msgstr ""
 
-#: app.py:471
+#: app.py:538
 msgid "Released under the MIT licence."
 msgstr ""
 
-#: app.py:484
+#: app.py:553
 #, python-brace-format
 msgid "Made with {heart} in Europe"
 msgstr ""
@@ -226,4 +239,8 @@ msgstr ""
 #: calliope_backend.py:104
 #, python-brace-format
 msgid "DAPLink reports an error: {details}"
+msgstr ""
+
+#: library.py:25 library.py:29
+msgid "Melody"
 msgstr ""

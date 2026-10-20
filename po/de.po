@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mini-studio\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-20 17:49+0200\n"
+"POT-Creation-Date: 2026-10-20 18:23+0200\n"
 "PO-Revision-Date: 2026-10-20 17:13+0200\n"
 "Last-Translator: Lars Gossard <lars@lasse-tech.de>\n"
 "Language-Team: none\n"
@@ -16,159 +16,172 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: app.py:90 app.py:353
+#: app.py:91 app.py:414
 msgid "Open"
 msgstr "Öffnen"
 
-#: app.py:91
+#: app.py:92
 msgid "Open a MakeCode project folder"
 msgstr "MakeCode-Projektordner öffnen"
 
-#: app.py:95
+#: app.py:96
 msgid "Save"
 msgstr "Speichern"
 
-#: app.py:95
+#: app.py:96
 msgid "Save main.ts (Ctrl+S)"
 msgstr "main.ts speichern (Strg+S)"
 
-#: app.py:96
+#: app.py:97
 msgid "Build"
 msgstr "Übersetzen"
 
-#: app.py:96
+#: app.py:97
 msgid "Build main.ts with mkc"
 msgstr "main.ts mit mkc übersetzen"
 
-#: app.py:99
+#: app.py:100
 msgid "Flash HEX"
 msgstr "HEX übertragen"
 
-#: app.py:100
+#: app.py:101
 msgid "Flash a compiled .hex file"
 msgstr "Eine fertige .hex-Datei übertragen"
 
-#: app.py:111
+#: app.py:114
 msgid "Build + Flash"
 msgstr "Übersetzen + übertragen"
 
-#: app.py:112
+#: app.py:115
 msgid "Build and copy the HEX to the mini"
 msgstr "Übersetzen und die HEX auf den mini kopieren"
 
-#: app.py:118 app.py:446
+#: app.py:121 app.py:513
 msgid "About Mini Studio"
 msgstr "Über Mini Studio"
 
-#: app.py:160
+#: app.py:163
 msgid "OUTPUT"
 msgstr "AUSGABE"
 
-#: app.py:206
-msgid "LED PREVIEW"
-msgstr "LED-VORSCHAU"
+#: app.py:205
+msgid "Open a project from the library"
+msgstr "Projekt aus der Bibliothek öffnen"
 
-#: app.py:212
-msgid "showLeds at the cursor"
-msgstr "showLeds an der Schreibmarke"
+#: app.py:208
+msgid "Library"
+msgstr "Bibliothek"
 
-#: app.py:220
-#, python-brace-format
-msgid "Button {name}"
-msgstr "Taste {name}"
-
-#: app.py:225
-msgid "DEVICE"
-msgstr "GERÄT"
-
-#: app.py:255
-#, python-brace-format
-msgid "connected · {mount}"
-msgstr "verbunden · {mount}"
-
-#: app.py:257
-msgid "not connected"
-msgstr "nicht eingebunden"
-
-#: app.py:292
-#, python-brace-format
-msgid "The program reacts to button {name}"
-msgstr "Das Programm reagiert auf Taste {name}"
-
-#: app.py:297
-#, python-brace-format
-msgid "The program does not use button {name}"
-msgstr "Das Programm nutzt Taste {name} nicht"
-
-#: app.py:333 calliope_backend.py:40
-msgid "A project needs main.ts and pxt.json."
-msgstr "Projekt braucht main.ts und pxt.json."
-
-#: app.py:344
-#, python-brace-format
-msgid "Opened project: {path}"
-msgstr "Projekt geöffnet: {path}"
-
-#: app.py:348
-msgid "Choose a MakeCode project"
-msgstr "MakeCode-Projekt wählen"
-
-#: app.py:353 app.py:426
-msgid "Cancel"
-msgstr "Abbrechen"
-
-#: app.py:362
-msgid "Saved main.ts."
-msgstr "main.ts gespeichert."
-
-#: app.py:377
-msgid "A task is already running."
-msgstr "Ein Vorgang läuft bereits."
-
-#: app.py:389
+#: app.py:250 app.py:452
 #, python-brace-format
 msgid "Error: {error}"
 msgstr "Fehler: {error}"
 
+#: app.py:254
+#, python-brace-format
+msgid "Copied {title} from the library to {path}"
+msgstr "{title} aus der Bibliothek nach {path} kopiert"
+
+#: app.py:265
+msgid "LED PREVIEW"
+msgstr "LED-VORSCHAU"
+
+#: app.py:271
+msgid "showLeds at the cursor"
+msgstr "showLeds an der Schreibmarke"
+
+#: app.py:279
+#, python-brace-format
+msgid "Button {name}"
+msgstr "Taste {name}"
+
+#: app.py:284
+msgid "DEVICE"
+msgstr "GERÄT"
+
+#: app.py:314
+#, python-brace-format
+msgid "connected · {mount}"
+msgstr "verbunden · {mount}"
+
+#: app.py:316
+msgid "not connected"
+msgstr "nicht eingebunden"
+
+#: app.py:351
+#, python-brace-format
+msgid "The program reacts to button {name}"
+msgstr "Das Programm reagiert auf Taste {name}"
+
+#: app.py:356
+#, python-brace-format
+msgid "The program does not use button {name}"
+msgstr "Das Programm nutzt Taste {name} nicht"
+
+#: app.py:392 calliope_backend.py:40
+msgid "A project needs main.ts and pxt.json."
+msgstr "Projekt braucht main.ts und pxt.json."
+
 #: app.py:405
+#, python-brace-format
+msgid "Opened project: {path}"
+msgstr "Projekt geöffnet: {path}"
+
+#: app.py:409
+msgid "Choose a MakeCode project"
+msgstr "MakeCode-Projekt wählen"
+
+#: app.py:414 app.py:493
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: app.py:425
+msgid "Saved main.ts."
+msgstr "main.ts gespeichert."
+
+#: app.py:440
+msgid "A task is already running."
+msgstr "Ein Vorgang läuft bereits."
+
+#: app.py:470
 #, python-brace-format
 msgid "Done: {image}"
 msgstr "Fertig: {image}"
 
-#: app.py:407
+#: app.py:472
 msgid "Building with mkc …"
 msgstr "Übersetze mit mkc …"
 
-#: app.py:415 app.py:437
+#: app.py:482 app.py:504
 #, python-brace-format
 msgid "Flashed: {destination}"
 msgstr "Übertragen: {destination}"
 
-#: app.py:417
+#: app.py:484
 msgid "Building and flashing …"
 msgstr "Übersetze und übertrage …"
 
-#: app.py:421
+#: app.py:488
 msgid "Choose a HEX file"
 msgstr "HEX-Datei wählen"
 
-#: app.py:426
+#: app.py:493
 msgid "Flash"
 msgstr "Übertragen"
 
-#: app.py:439
+#: app.py:506
 msgid "Flashing HEX …"
 msgstr "Übertrage HEX …"
 
-#: app.py:462
+#: app.py:529
 msgid "Editor and flasher for MakeCode TypeScript on the Calliope mini V3."
 msgstr "Editor und Flasher für MakeCode-TypeScript auf dem Calliope mini V3."
 
-#: app.py:471
+#: app.py:538
 msgid "Released under the MIT licence."
 msgstr "Veröffentlicht unter der MIT-Lizenz."
 
-#: app.py:484
+#: app.py:553
 #, python-brace-format
 msgid "Made with {heart} in Europe"
 msgstr "Made with {heart} in Europe"
@@ -230,3 +243,7 @@ msgstr "Übertragung fehlgeschlagen: {error}"
 #, python-brace-format
 msgid "DAPLink reports an error: {details}"
 msgstr "DAPLink meldet einen Fehler: {details}"
+
+#: library.py:25 library.py:29
+msgid "Melody"
+msgstr "Melodie"
