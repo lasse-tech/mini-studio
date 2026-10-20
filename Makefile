@@ -7,6 +7,7 @@ PYTHON := python3 -W error
 APP_FILES := app.py calliope_backend.py i18n.py library.py matrix.py mini-studio.css
 SOURCES := app.py calliope_backend.py library.py matrix.py
 PROJECTS := $(notdir $(wildcard library/*))
+PRIVATE := CLAUDE.md
 LANGUAGES := de
 MO := $(foreach l,$(LANGUAGES),locale/$(l)/LC_MESSAGES/mini-studio.mo)
 XGETTEXT := xgettext --language=Python --keyword=_ --from-code=UTF-8 --package-name=mini-studio
@@ -74,6 +75,10 @@ uninstall:
 	$(REFRESH_MENU)
 	rm -rf $(SHARE)
 
+## github: push main to GitHub, with history rewritten without CLAUDE.md
+github:
+	git push github $$($(PYTHON) -I scripts/github_export.py main $(PRIVATE)):refs/heads/main
+
 ## deploy: nothing to deploy, no web server
 deploy:
 	@echo "Nothing to deploy: Mini Studio is a desktop app without a web server."
@@ -97,4 +102,4 @@ clean:
 distclean: clean
 	rm -rf library/*/.pxt library/*/node_modules
 
-.PHONY: help build locale pot flash debug install uninstall deploy lint clean distclean
+.PHONY: help build locale pot flash github debug install uninstall deploy lint clean distclean
