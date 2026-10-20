@@ -1,0 +1,168 @@
+# German translation of Mini Studio.
+# Copyright (C) 2026 Lars Gossard
+# This file is distributed under the same license as Mini Studio (MIT).
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mini-studio\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-20 17:13+0200\n"
+"PO-Revision-Date: 2026-10-20 17:13+0200\n"
+"Last-Translator: Lars Gossard <lars@lasse-tech.de>\n"
+"Language-Team: none\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: app.py:36
+msgid "Open project"
+msgstr "Projekt öffnen"
+
+#: app.py:37
+msgid "Save"
+msgstr "Speichern"
+
+#: app.py:38
+msgid "Build"
+msgstr "Übersetzen"
+
+#: app.py:39
+msgid "Build + flash"
+msgstr "Übersetzen + übertragen"
+
+#: app.py:40
+msgid "Flash HEX"
+msgstr "HEX übertragen"
+
+#: app.py:61
+msgid "Output"
+msgstr "Ausgabe"
+
+#: app.py:84
+#, python-brace-format
+msgid "● Calliope mini V3 connected: {path}"
+msgstr "● Calliope mini V3 verbunden: {path}"
+
+#: app.py:86
+msgid "○ No Calliope mini V3 mounted"
+msgstr "○ Kein Calliope mini V3 eingebunden"
+
+#: app.py:94 calliope_backend.py:40
+msgid "The project needs pxt.json and main.ts."
+msgstr "Das Projekt braucht pxt.json und main.ts."
+
+#: app.py:100
+#, python-brace-format
+msgid "Project opened: {path}"
+msgstr "Projekt geöffnet: {path}"
+
+#: app.py:104
+msgid "Choose a MakeCode project"
+msgstr "MakeCode-Projekt wählen"
+
+#: app.py:109 app.py:178
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: app.py:109
+msgid "Open"
+msgstr "Öffnen"
+
+#: app.py:121
+msgid "main.ts saved."
+msgstr "main.ts gespeichert."
+
+#: app.py:131
+msgid "A task is already running."
+msgstr "Ein Vorgang läuft bereits."
+
+#: app.py:141
+#, python-brace-format
+msgid "Error: {error}"
+msgstr "Fehler: {error}"
+
+#: app.py:157
+#, python-brace-format
+msgid "Done: {path}"
+msgstr "Fertig: {path}"
+
+#: app.py:159
+msgid "Building with mkc …"
+msgstr "Übersetze mit mkc …"
+
+#: app.py:167 app.py:187
+#, python-brace-format
+msgid "Flashed: {path}"
+msgstr "Übertragen: {path}"
+
+#: app.py:169
+msgid "Building and flashing …"
+msgstr "Übersetze und übertrage …"
+
+#: app.py:173
+msgid "Choose a HEX file"
+msgstr "HEX-Datei wählen"
+
+#: app.py:178
+msgid "Flash"
+msgstr "Übertragen"
+
+#: app.py:188
+msgid "Flashing HEX …"
+msgstr "Übertrage HEX …"
+
+#: calliope_backend.py:43
+msgid "mkc is missing. Install it with: npm install -g makecode"
+msgstr "mkc fehlt. Installiere es mit: npm install -g makecode"
+
+#: calliope_backend.py:56
+msgid "mkc did not respond within three minutes."
+msgstr "mkc hat nach drei Minuten nicht geantwortet."
+
+#: calliope_backend.py:59
+#, python-brace-format
+msgid ""
+"mkc build failed:\n"
+"{output}"
+msgstr "mkc build fehlgeschlagen:\n{output}"
+
+#: calliope_backend.py:73
+#, python-brace-format
+msgid ""
+"mkc produced no HEX file.\n"
+"{output}"
+msgstr "mkc hat keine HEX-Datei erzeugt.\n{output}"
+
+#: calliope_backend.py:77
+#, python-brace-format
+msgid "Invalid Intel HEX format: {path}"
+msgstr "Ungültiges Intel-HEX-Format: {path}"
+
+#: calliope_backend.py:84
+msgid "No mounted Calliope mini V3 found."
+msgstr "Kein eingebundener Calliope mini V3 gefunden."
+
+#: calliope_backend.py:87
+#, python-brace-format
+msgid "{path} is not a verified Calliope mini V3."
+msgstr "{path} ist kein verifizierter Calliope mini V3."
+
+#: calliope_backend.py:90
+msgid "Choose an existing .hex file."
+msgstr "Bitte eine vorhandene .hex-Datei auswählen."
+
+#: calliope_backend.py:92
+msgid "The file is not an Intel HEX file."
+msgstr "Die Datei ist keine Intel-HEX-Datei."
+
+#: calliope_backend.py:100
+#, python-brace-format
+msgid "Transfer failed: {error}"
+msgstr "Übertragung fehlgeschlagen: {error}"
+
+#: calliope_backend.py:104
+#, python-brace-format
+msgid "DAPLink reports an error: {error}"
+msgstr "DAPLink meldet einen Fehler: {error}"

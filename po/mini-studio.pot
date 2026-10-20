@@ -1,0 +1,169 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the mini-studio package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: mini-studio\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-20 17:13+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: app.py:36
+msgid "Open project"
+msgstr ""
+
+#: app.py:37
+msgid "Save"
+msgstr ""
+
+#: app.py:38
+msgid "Build"
+msgstr ""
+
+#: app.py:39
+msgid "Build + flash"
+msgstr ""
+
+#: app.py:40
+msgid "Flash HEX"
+msgstr ""
+
+#: app.py:61
+msgid "Output"
+msgstr ""
+
+#: app.py:84
+#, python-brace-format
+msgid "● Calliope mini V3 connected: {path}"
+msgstr ""
+
+#: app.py:86
+msgid "○ No Calliope mini V3 mounted"
+msgstr ""
+
+#: app.py:94 calliope_backend.py:40
+msgid "The project needs pxt.json and main.ts."
+msgstr ""
+
+#: app.py:100
+#, python-brace-format
+msgid "Project opened: {path}"
+msgstr ""
+
+#: app.py:104
+msgid "Choose a MakeCode project"
+msgstr ""
+
+#: app.py:109 app.py:178
+msgid "Cancel"
+msgstr ""
+
+#: app.py:109
+msgid "Open"
+msgstr ""
+
+#: app.py:121
+msgid "main.ts saved."
+msgstr ""
+
+#: app.py:131
+msgid "A task is already running."
+msgstr ""
+
+#: app.py:141
+#, python-brace-format
+msgid "Error: {error}"
+msgstr ""
+
+#: app.py:157
+#, python-brace-format
+msgid "Done: {path}"
+msgstr ""
+
+#: app.py:159
+msgid "Building with mkc …"
+msgstr ""
+
+#: app.py:167 app.py:187
+#, python-brace-format
+msgid "Flashed: {path}"
+msgstr ""
+
+#: app.py:169
+msgid "Building and flashing …"
+msgstr ""
+
+#: app.py:173
+msgid "Choose a HEX file"
+msgstr ""
+
+#: app.py:178
+msgid "Flash"
+msgstr ""
+
+#: app.py:188
+msgid "Flashing HEX …"
+msgstr ""
+
+#: calliope_backend.py:43
+msgid "mkc is missing. Install it with: npm install -g makecode"
+msgstr ""
+
+#: calliope_backend.py:56
+msgid "mkc did not respond within three minutes."
+msgstr ""
+
+#: calliope_backend.py:59
+#, python-brace-format
+msgid ""
+"mkc build failed:\n"
+"{output}"
+msgstr ""
+
+#: calliope_backend.py:73
+#, python-brace-format
+msgid ""
+"mkc produced no HEX file.\n"
+"{output}"
+msgstr ""
+
+#: calliope_backend.py:77
+#, python-brace-format
+msgid "Invalid Intel HEX format: {path}"
+msgstr ""
+
+#: calliope_backend.py:84
+msgid "No mounted Calliope mini V3 found."
+msgstr ""
+
+#: calliope_backend.py:87
+#, python-brace-format
+msgid "{path} is not a verified Calliope mini V3."
+msgstr ""
+
+#: calliope_backend.py:90
+msgid "Choose an existing .hex file."
+msgstr ""
+
+#: calliope_backend.py:92
+msgid "The file is not an Intel HEX file."
+msgstr ""
+
+#: calliope_backend.py:100
+#, python-brace-format
+msgid "Transfer failed: {error}"
+msgstr ""
+
+#: calliope_backend.py:104
+#, python-brace-format
+msgid "DAPLink reports an error: {error}"
+msgstr ""
