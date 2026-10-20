@@ -41,8 +41,8 @@ On start the app opens the first entry.
 | `imperial-march` | `imperial-march.mid`, trumpet, bars 6–17 | quantised to sixteenths, 102 bpm |
 | `deep-space-nine` | `deep-space-nine.mid`, horn and trumpet | timing in ms as recorded, top note of horn chords |
 
-Both melodies play on start and again on button A, with the LED matrix
-blinking in time.
+Both melodies play on button A, with the LED matrix blinking in time; until
+then the matrix shows a still image so the mini is visibly ready.
 
 ## Look
 

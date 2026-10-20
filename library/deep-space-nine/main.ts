@@ -1,5 +1,6 @@
 // Star Trek: Deep Space Nine main title (horn and trumpet line of the MIDI).
-// Button A plays it again. Timing follows the recording, which is played freely.
+// Button A plays it; until then the LEDs show the program is ready.
+// Timing follows the recording, which is played freely.
 // Pairs of frequency in Hz (0 = rest) and length in ms, one line per phrase
 const melody = [
     196, 540, 392, 480, 440, 7000,
@@ -68,8 +69,19 @@ function playTheme() {
     }
 }
 
+function showReady() {
+    basic.showLeds(`
+        . # # # .
+        # . . . #
+        # . # . #
+        # . . . #
+        . # # # .
+    `, 0)
+}
+
 input.onButtonPressed(Button.A, function () {
     playTheme()
+    showReady()
 })
 
-playTheme()
+showReady()

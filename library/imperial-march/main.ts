@@ -1,5 +1,6 @@
 // Imperial March main theme (trumpet line, bars 6-17 of the orchestral MIDI).
-// Button A plays it again. The built-in speaker is available on the Calliope mini V3.
+// Button A plays it; until then the LEDs show the program is ready.
+// The built-in speaker is available on the Calliope mini V3.
 const sixteenth = 147 // ms at 102 bpm
 // Pairs of frequency in Hz (0 = rest) and length in sixteenths, one line per bar
 const melody = [
@@ -51,8 +52,19 @@ function playMarch() {
     }
 }
 
+function showReady() {
+    basic.showLeds(`
+        # . . . #
+        . # . # .
+        . . # . .
+        . # . # .
+        # . . . #
+    `, 0)
+}
+
 input.onButtonPressed(Button.A, function () {
     playMarch()
+    showReady()
 })
 
-playMarch()
+showReady()
