@@ -474,7 +474,9 @@ class CalliopeApp(Gtk.Window):
             0,
         )
         box.pack_start(
-            Gtk.LinkButton(uri="https://lars-gossard.de", label="lars-gossard.de"),
+            Gtk.LinkButton(
+                uri="https://www.lars-gossard.de", label="www.lars-gossard.de"
+            ),
             False,
             False,
             0,
