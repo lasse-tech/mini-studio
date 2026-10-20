@@ -7,6 +7,8 @@ import shutil
 import subprocess
 from pathlib import Path
 
+from i18n import _
+
 
 class CalliopeError(RuntimeError):
     pass
@@ -35,9 +37,11 @@ def is_calliope_v3(mount: Path) -> bool:
 
 def build(project: Path) -> tuple[Path, str]:
     if not (project / "pxt.json").is_file() or not (project / "main.ts").is_file():
-        raise CalliopeError("Projekt braucht pxt.json und main.ts.")
+        raise CalliopeError(_("A project needs main.ts and pxt.json."))
     if not shutil.which("mkc"):
-        raise CalliopeError("mkc fehlt. Installiere es mit: npm install -g makecode")
+        raise CalliopeError(
+            _("mkc is missing. Install it with: npm install -g makecode")
+        )
     try:
         result = subprocess.run(
             ["mkc", "build"],
@@ -49,9 +53,11 @@ def build(project: Path) -> tuple[Path, str]:
             check=False,
         )
     except subprocess.TimeoutExpired as exc:
-        raise CalliopeError("mkc hat nach drei Minuten nicht geantwortet.") from exc
+        raise CalliopeError(_("mkc did not answer within three minutes.")) from exc
     if result.returncode:
-        raise CalliopeError(f"mkc build fehlgeschlagen:\n{result.stdout}")
+        raise CalliopeError(
+            _("mkc build failed:\n{output}").format(output=result.stdout)
+        )
     built = project / "built"
     hex_files = (
         sorted(
@@ -63,23 +69,27 @@ def build(project: Path) -> tuple[Path, str]:
         else []
     )
     if not hex_files:
-        raise CalliopeError(f"mkc hat keine HEX-Datei erzeugt.\n{result.stdout}")
+        raise CalliopeError(
+            _("mkc did not produce a HEX file.\n{output}").format(output=result.stdout)
+        )
     image = hex_files[0]
     if not image.read_bytes().startswith(b":"):
-        raise CalliopeError(f"Ungültiges Intel-HEX-Format: {image}")
+        raise CalliopeError(_("Invalid Intel HEX format: {image}").format(image=image))
     return image, result.stdout
 
 
 def flash(image: Path, mount: Path | None = None) -> Path:
     mount = mount or find_device()
     if mount is None:
-        raise CalliopeError("Kein eingebundener Calliope mini V3 gefunden.")
+        raise CalliopeError(_("No mounted Calliope mini V3 found."))
     if not is_calliope_v3(mount):
-        raise CalliopeError(f"{mount} ist kein verifizierter Calliope mini V3.")
+        raise CalliopeError(
+            _("{mount} is not a verified Calliope mini V3.").format(mount=mount)
+        )
     if not image.is_file() or image.suffix.lower() != ".hex":
-        raise CalliopeError("Bitte eine vorhandene .hex-Datei auswählen.")
+        raise CalliopeError(_("Please choose an existing .hex file."))
     if not image.read_bytes().startswith(b":"):
-        raise CalliopeError("Die Datei ist keine Intel-HEX-Datei.")
+        raise CalliopeError(_("The file is not an Intel HEX file."))
     destination = mount / "CALLIOPE.HEX"
     try:
         with image.open("rb") as source, destination.open("wb") as target:
@@ -87,10 +97,12 @@ def flash(image: Path, mount: Path | None = None) -> Path:
             target.flush()
             os.fsync(target.fileno())
     except OSError as exc:
-        raise CalliopeError(f"Übertragung fehlgeschlagen: {exc}") from exc
+        raise CalliopeError(_("Flashing failed: {error}").format(error=exc)) from exc
     failure = mount / "FAIL.TXT"
     if failure.is_file():
         raise CalliopeError(
-            f"DAPLink meldet einen Fehler: {failure.read_text(errors='replace')}"
+            _("DAPLink reports an error: {details}").format(
+                details=failure.read_text(errors="replace")
+            )
         )
     return destination
